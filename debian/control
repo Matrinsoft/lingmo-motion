@@ -1,4 +1,4 @@
-﻿Source: lingmo-motion
+Source: lingmo-motion
 Section: libs
 Priority: optional
 Maintainer: Lingmo OS Team <team@lingmo.org>
@@ -7,23 +7,18 @@ Build-Depends:
     debhelper-compat (= 13),
     pkg-config,
     qt6-base-dev (>= 6.5),
-    qt6-base-dev,
 Standards-Version: 4.6.2
 Homepage: https://github.com/Matrinsoft/lingmo-motion
 Rules-Requires-Root: no
 
-Package: liblingmo-motion1
+Package: liblingmomotion1
 Architecture: any
-Depends:
-    ,
-    ,
-Description: Lingmo Motion System
- Lingmo Desktop Lingmo Motion System.
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: lingmo-motion
+ Lingmo Desktop lingmo-motion.
 
-Package: liblingmo-motion-dev
+Package: liblingmomotion-dev
 Architecture: any
-Depends:
-    liblingmo-motion1 (= ),
-    ,
-Description: Lingmo Motion System - development files
+Depends: liblingmomotion1 (= ${binary:Version}), ${misc:Depends}
+Description: lingmo-motion - development files
  This package contains the development files.
