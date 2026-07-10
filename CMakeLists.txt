@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+﻿cmake_minimum_required(VERSION 3.20)
 
 project(lingmo-motion VERSION 1.0.0 DESCRIPTION "Lingmo Motion System" LANGUAGES CXX)
 
@@ -11,6 +11,7 @@ find_package(Qt6 REQUIRED COMPONENTS Core)
 add_library(lingmo-motion SHARED
     src/springanimation.cpp
 )
+target_compile_definitions(lingmo-motion PRIVATE LINGMO_MOTION_LIBRARY)
 
 target_include_directories(lingmo-motion
     PUBLIC
@@ -19,12 +20,6 @@ target_include_directories(lingmo-motion
 )
 
 target_link_libraries(lingmo-motion PUBLIC Qt6::Core)
-
-include(GenerateExportHeader)
-generate_export_header(lingmo-motion
-    EXPORT_MACRO_NAME LINGMO_MOTION_EXPORT
-    EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/export.h
-)
 
 install(TARGETS lingmo-motion
     EXPORT LingmoMotionTargets
