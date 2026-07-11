@@ -1,4 +1,4 @@
-﻿name: Build
+name: Build
 on:
   push:
     branches: [main, develop]
@@ -13,7 +13,10 @@ jobs:
         run: apt-get update -qq && apt-get install -y -qq git
       - uses: actions/checkout@v4
       - name: Install system dependencies
-        run: apt-get update -qq && apt-get install -y -qq cmake ninja-build g++ qt6-base-dev
+        run: |
+          apt-get update -qq && apt-get install -y -qq \
+            cmake ninja-build g++ \
+            qt6-base-dev
       - name: Configure
         run: cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - name: Build
